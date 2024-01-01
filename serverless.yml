@@ -1,0 +1,11 @@
+service: starlightserverless
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  stage: dev
+  region: ap-southeast-2
+
+functions:
+  hello:
+    handler: src/handler.hello
