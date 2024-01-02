@@ -1,9 +1,9 @@
-service: starlightserverless
+service: starlightserverlesslambda
 
 provider:
   name: aws
   runtime: nodejs18.x
-  stage: dev
+  stage: prod
   region: ap-southeast-2
 
 functions:
