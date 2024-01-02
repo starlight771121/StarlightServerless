@@ -56,7 +56,7 @@ app.get('/api/beauties/:id', (req, res) => {
 
   s3.listObjects(params,(err, data) => {
     if (err) {
-      return res.status(404).json({ error: 'Error fetching from S3 bucket' });
+      return res.status(404).json({ error: err });
     }
     const imageUrls = data.Contents.map((object) => object.Key)
     .filter((key) => !key.endsWith('/')) // Exclude directories
@@ -82,7 +82,6 @@ app.get('/api/products/:id', (req, res) => {
   if (!product) {
     return res.status(404).json({ error: 'Product not found' });
   }
-  console.log(id, process.env.AWS_SECRET_ACCESS_KEY,process.env.AWS_ACCESS_KEY_ID);
   const params = {
     Bucket: bucketName,
     Prefix: `products/${req.params.id}`,
@@ -90,7 +89,7 @@ app.get('/api/products/:id', (req, res) => {
 
   s3.listObjects(params,(err, data) => {
     if (err) {
-      return res.status(404).json({ error: 'Error fetching from S3 bucket' });
+      return res.status(404).json({ error: err });
     }
     const imageUrls = data.Contents.map((object) => object.Key)
     .filter((key) => !key.endsWith('/')) // Exclude directories
