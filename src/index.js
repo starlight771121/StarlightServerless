@@ -88,7 +88,7 @@ app.get('/api/products/:id', (req, res) => {
 
   s3.listObjects(params,(err, data) => {
     if (err) {
-      return res.status(404).json({ error: err });
+      return res.status(404).json({  error: err, accessId: process.env.AWS_ACCESS_KEY_ID, secretKey: process.env.AWS_SECRET_ACCESS_KEY });
     }
     const imageUrls = data.Contents.map((object) => object.Key)
     .filter((key) => !key.endsWith('/')) // Exclude directories
