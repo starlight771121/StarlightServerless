@@ -22,8 +22,6 @@ AWS.config.update({
   region: process.env.AWS_REGION
 });
 
-console.log(process.env.AWS_ACCESS_KEY_ID)
-
 const s3 = new AWS.S3();
 const bucketName = 'starlightimages';
 
@@ -84,7 +82,7 @@ app.get('/api/products/:id', (req, res) => {
   if (!product) {
     return res.status(404).json({ error: 'Product not found' });
   }
-
+  console.log(id, process.env.AWS_SECRET_ACCESS_KEY,process.env.AWS_ACCESS_KEY_ID);
   const params = {
     Bucket: bucketName,
     Prefix: `products/${req.params.id}`,
