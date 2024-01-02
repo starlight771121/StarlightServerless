@@ -4,8 +4,6 @@ const serverless = require('serverless-http');
 const fs = require('fs');
 const path = require('path');
 
-// import { GetObjectCommand, S3Client } from "@aws-sdk/client-s3";
-
 const app = express();
 app.use(cors());
 // const PORT = process.env.PORT || 5000;
