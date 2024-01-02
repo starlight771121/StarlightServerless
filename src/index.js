@@ -23,7 +23,7 @@ const s3 = new AWS.S3();
 const bucketName = 'starlightimages';
 
 app.get('/test', (req, res) => {
-  res.send('hello word');
+  res.send('hello world');
 });
 
 // Endpoint 1: Returns a list of all beauties
