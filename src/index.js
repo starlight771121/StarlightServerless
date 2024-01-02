@@ -13,13 +13,18 @@ const jsonData = JSON.parse(fs.readFileSync(path.join(__dirname, 'data.json'), '
 //aws config
 const AWS = require('aws-sdk');
 
-AWS.config.update({
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  region: process.env.AWS_REGION
+// AWS.config.update({
+//   accessKeyId: process.env.S3_AWS_ACCESS_KEY_ID,
+//   secretAccessKey: process.env.S3_AWS_SECRET_ACCESS_KEY,
+//   region: process.env.S3_AWS_REGION
+// });
+const customCredentials = new AWS.Credentials({
+  accessKeyId: process.env.S3_AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.S3_AWS_SECRET_ACCESS_KEY,
+  region: process.env.S3_AWS_REGION
 });
 
-const s3 = new AWS.S3();
+const s3 = new AWS.S3({ credentials: customCredentials });
 const bucketName = 'starlightimages';
 
 app.get('/test', (req, res) => {
