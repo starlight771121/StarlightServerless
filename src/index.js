@@ -3,7 +3,6 @@ const cors = require('cors');
 const serverless = require('serverless-http');
 const fs = require('fs');
 const path = require('path');
-require('dotenv').config();
 
 // import { GetObjectCommand, S3Client } from "@aws-sdk/client-s3";
 
