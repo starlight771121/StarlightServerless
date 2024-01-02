@@ -12,7 +12,7 @@ const jsonData = JSON.parse(fs.readFileSync(path.join(__dirname, 'data.json'), '
 
 //aws config
 const AWS = require('aws-sdk');
-
+//
 // AWS.config.update({
 //   accessKeyId: process.env.S3_AWS_ACCESS_KEY_ID,
 //   secretAccessKey: process.env.S3_AWS_SECRET_ACCESS_KEY,
